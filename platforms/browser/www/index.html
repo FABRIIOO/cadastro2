@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Blank App</title>
+        <!-- style -->
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+        
+        <!-- script -->
+        <script src="js/jquery.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/valida_cpf_cnpj.js"></script>
+
+        <script src="js/html2canvas.js"></script>
+        <script src="js/jspdf.debug.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="css/all.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <main id="dados">
+            <nav class="navbar sticky-top navbar-light bg">
+                <p>Cetro</p>
+            </nav>
+            <div class="container  rounded mx-auto d-block">
+                <h3>Dados Item</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="cnpj_cpf">CNPJ / CPF *</label>
+                        <input type="text" class="form-control" id="cnpj_cpf"  placeholder="Digite o CPF/CNPJ">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="rz_social">Razão Social *</label>
+                        <input type="text" class="form-control" id="rz_social"  placeholder="Digite razão social">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="n_fantasia">Nome Fantasia *</label>
+                        <input type="text" class="form-control" id="n_fantasia"  placeholder="Digite o nome fantasia">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <label for="endereco">Endereço *</label>
+                        <input type="text" class="form-control" id="endereco"  placeholder="Digite o endereço">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="numero">Número *</label>
+                        <input type="text" class="form-control" id="numero"  placeholder="Digite o número">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="cep">CEP *</label>
+                        <input type="text" class="form-control" id="cep"  placeholder="Digite o CEP" onkeyUp="BuscaCep()">
+                    </div>
+                </div>
+                <div class="row">  
+                    <div class="col-md-4">
+                        <label for="cidade">cidade *</label>
+                        <input type="text" class="form-control" id="cidade"  placeholder="Digite a cidade">
+                    </div>
+                    <div class="col-md-8">
+                        <label for="bairro">Bairro *</label>
+                        <input type="text" class="form-control" id="bairro"  placeholder="Digite o bairro">
+                    </div>
+                </div>
+                <div class="row">  
+                    <div class="col-md-4">
+                        <label for="cidade">Pais *</label>
+                        <select class="form-control" id="pais">
+                            <option value="África do Sul">África do Sul</option>
+                            <option value="Albânia">Albânia</option>
+                            <option value="Alemanha">Alemanha</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Anguilla">Anguilla</option>
+                            <option value="Antigua">Antigua</option>
+                            <option value="Arábia Saudita">Arábia Saudita</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armênia">Armênia</option>
+                            <option value="Aruba">Aruba</option>
+                            <option value="Austrália">Austrália</option>
+                            <option value="Áustria">Áustria</option>
+                            <option value="Azerbaijão">Azerbaijão</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrein">Bahrein</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Bélgica">Bélgica</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bermudas">Bermudas</option>
+                            <option value="Botsuana">Botsuana</option>
+                            <option value="Brasil" selected>Brasil</option>
+                            <option value="Brunei">Brunei</option>
+                            <option value="Bulgária">Bulgária</option>
+                            <option value="Burkina Fasso">Burkina Fasso</option>
+                            <option value="botão">botão</option>
+                            <option value="Cabo Verde">Cabo Verde</option>
+                            <option value="Camarões">Camarões</option>
+                            <option value="Camboja">Camboja</option>
+                            <option value="Canadá">Canadá</option>
+                            <option value="Cazaquistão">Cazaquistão</option>
+                            <option value="Chade">Chade</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Cidade do Vaticano">Cidade do Vaticano</option>
+                            <option value="Colômbia">Colômbia</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Coréia do Sul">Coréia do Sul</option>
+                            <option value="Costa do Marfim">Costa do Marfim</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Croácia">Croácia</option>
+                            <option value="Dinamarca">Dinamarca</option>
+                            <option value="Djibuti">Djibuti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="EUA">EUA</option>
+                            <option value="Egito">Egito</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Emirados Árabes">Emirados Árabes</option>
+                            <option value="Equador">Equador</option>
+                            <option value="Eritréia">Eritréia</option>
+                            <option value="Escócia">Escócia</option>
+                            <option value="Eslováquia">Eslováquia</option>
+                            <option value="Eslovênia">Eslovênia</option>
+                            <option value="Espanha">Espanha</option>
+                            <option value="Estônia">Estônia</option>
+                            <option value="Etiópia">Etiópia</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Filipinas">Filipinas</option>
+                            <option value="Finlândia">Finlândia</option>
+                            <option value="França">França</option>
+                            <option value="Gabão">Gabão</option>
+                            <option value="Gâmbia">Gâmbia</option>
+                            <option value="Gana">Gana</option>
+                            <option value="Geórgia">Geórgia</option>
+                            <option value="Gibraltar">Gibraltar</option>
+                            <option value="Granada">Granada</option>
+                            <option value="Grécia">Grécia</option>
+                            <option value="Guadalupe">Guadalupe</option>
+                            <option value="Guam">Guam</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guiana">Guiana</option>
+                            <option value="Guiana Francesa">Guiana Francesa</option>
+                            <option value="Guiné-bissau">Guiné-bissau</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Holanda">Holanda</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Hungria">Hungria</option>
+                            <option value="Iêmen">Iêmen</option>
+                            <option value="Ilhas Cayman">Ilhas Cayman</option>
+                            <option value="Ilhas Cook">Ilhas Cook</option>
+                            <option value="Ilhas Curaçao">Ilhas Curaçao</option>
+                            <option value="Ilhas Marshall">Ilhas Marshall</option>
+                            <option value="Ilhas Turks & Caicos">Ilhas Turks & Caicos</option>
+                            <option value="Ilhas Virgens (brit.)">Ilhas Virgens (brit.)</option>
+                            <option value="Ilhas Virgens(amer.)">Ilhas Virgens(amer.)</option>
+                            <option value="Ilhas Wallis e Futuna">Ilhas Wallis e Futuna</option>
+                            <option value="Índia">Índia</option>
+                            <option value="Indonésia">Indonésia</option>
+                            <option value="Inglaterra">Inglaterra</option>
+                            <option value="Irlanda">Irlanda</option>
+                            <option value="Islândia">Islândia</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Itália">Itália</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japão">Japão</option>
+                            <option value="Jordânia">Jordânia</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Líbano">Líbano</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lituânia">Lituânia</option>
+                            <option value="Luxemburgo">Luxemburgo</option>
+                            <option value="Macau">Macau</option>
+                            <option value="Macedônia">Macedônia</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malásia">Malásia</option>
+                            <option value="Malaui">Malaui</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Marrocos">Marrocos</option>
+                            <option value="Martinica">Martinica</option>
+                            <option value="Mauritânia">Mauritânia</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="México">México</option>
+                            <option value="Moldova">Moldova</option>
+                            <option value="Mônaco">Mônaco</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Nicarágua">Nicarágua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigéria">Nigéria</option>
+                            <option value="Noruega">Noruega</option>
+                            <option value="Nova Caledônia">Nova Caledônia</option>
+                            <option value="Nova Zelândia">Nova Zelândia</option>
+                            <option value="Omã">Omã</option>
+                            <option value="Palau">Palau</option>
+                            <option value="Panamá">Panamá</option>
+                            <option value="Papua-nova Guiné">Papua-nova Guiné</option>
+                            <option value="Paquistão">Paquistão</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Polinésia Francesa">Polinésia Francesa</option>
+                            <option value="Polônia">Polônia</option>
+                            <option value="Porto Rico">Porto Rico</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Quênia">Quênia</option>
+                            <option value="Rep. Dominicana">Rep. Dominicana</option>
+                            <option value="Rep. Tcheca">Rep. Tcheca</option>
+                            <option value="Reunion">Reunion</option>
+                            <option value="Romênia">Romênia</option>
+                            <option value="Ruanda">Ruanda</option>
+                            <option value="Rússia">Rússia</option>
+                            <option value="Saipan">Saipan</option>
+                            <option value="Samoa Americana">Samoa Americana</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Serra Leone">Serra Leone</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Singapura">Singapura</option>
+                            <option value="Síria">Síria</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="St. Kitts & Nevis">St. Kitts & Nevis</option>
+                            <option value="St. Lúcia">St. Lúcia</option>
+                            <option value="St. Vincent">St. Vincent</option>
+                            <option value="Sudão">Sudão</option>
+                            <option value="Suécia">Suécia</option>
+                            <option value="Suiça">Suiça</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Tailândia">Tailândia</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Tanzânia">Tanzânia</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                            <option value="Tunísia">Tunísia</option>
+                            <option value="Turquia">Turquia</option>
+                            <option value="Ucrânia">Ucrânia</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="Uruguai">Uruguai</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnã">Vietnã</option>
+                            <option value="Zaire">Zaire</option>
+                            <option value="Zâmbia">Zâmbia</option>
+                            <option value="Zimbábue">Zimbábue</option>
+                        </select>
+                    </div>  
+                    <div class="col-md-4">
+                        <label for="rg">RG *</label>
+                        <input type="text" class="form-control" id="rg"  placeholder="Digite o RG">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inscri_municipal">Inscrição Municipal *</label>
+                        <input type="text" class="form-control" id="inscri_municipal"  placeholder="Digite a inscrição municipal">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="tel_1">Número de Telefone 1 *</label>
+                        <input type="text" class="form-control" id="tel_1"  placeholder="Digite o número de telefone 1">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tel_2">Número de Telefone 2</label>
+                        <input type="text" class="form-control" id="tel_2"  placeholder="Digite o número de telefone 2">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tel_3">Número de Telefone 3</label>
+                        <input type="text" class="form-control" id="tel_3"  placeholder="Digite o número de telefone 3">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tel_4">Número de Telefone 4</label>
+                        <input type="text" class="form-control" id="tel_4"  placeholder="Digite o número de telefone 4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="email">E-mail *</label>
+                        <input type="email" class="form-control" id="email"  placeholder="Digite o e-mail" >
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email_conf">Confirma E-mail *</label>
+                        <input type="email" class="form-control" id="email_conf"  placeholder="Confirme o e-mail">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="obs">Observação *</label>
+                        <textarea class="form-control" id="obs" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <span></span>
+                    </div>
+                </div>
+                <br>
+                <h3>Adicionar produto</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="cidade">Produto *</label>
+                        <select class="form-control" id="pais">
+                            <option value="e">seladora</option>
+                        </select>
+                    </div>
+             
+                    <div class="col-md-6">
+                        <label for="qtd">Quantidade *</label>
+                        <input type="number" class="form-control" id="qtd"  placeholder="Quantidade">
+                    </div>
+                </div>
+                  
+                <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-primary bg"  onclick="GeraPdf()">Gerar cadastro</button>
+                        </div>
+                    </div>
+            </div>
+        </main>
+        <main id="dados_pdf">
+                <div id="title"></div>
+                <div id="data_emissao"></div>
+                
+                <div class="bloco_hr">
+                    DADOS DA EMPRESA
+                </div>
+                <div class="display_flex">
+                    <p class="wd_800">
+                        <b>NOME: </b>CETRO SOLUÇÕES EM EMBALAGENS EIRELI - ME
+                    </p>
+                    <p class="wd_800">
+                        <b>CNPJ: </b>15.287.545/0001-06
+                    </p>
+                </div>
+                <div class="display_flex">
+                    <p class="wd_800">
+                        <b>ENDEREÇO: </b>RUA INCONFIDENCIA QUADRA, 6-60
+                    </p>
+                    <p class="wd_800">
+                        <b>INSCRIÇÃO: </b>209.464.711.110
+                    </p>
+                </div>
+                <div class="display_flex">
+                    <p class="wd_800">
+                        <b>BAIRRO: </b>VILA VERGUEIRO
+                    </p>
+                    <p class="wd_800">
+                        <b>TELEFONE: </b>(14) 3201-8500
+                    </p>
+                </div>
+                <div class="display_flex">
+                    <p class="wd_800">
+                        <b>CIDADE: </b>>BAURU - SP - 17.020-200
+                    </p>
+                    <p class="wd_800">
+                        <b>EMAIL: </b>finamceiro2@cetroloja.com.br | fiscal@cetromaquinas.com.br
+                    </p>
+                </div>
+                <div class="bloco_hr">
+                    DADOS DO PEDIDO
+                </div>
+                <div class="display_flex">
+                    <p class="wd_800" id="cliente_pdf">
+                        
+                    </p>
+                    <p class="wd_800" id="cnpj_cpf_pdf">
+                        
+                    </p>
+                </div>
+                <div class="display_flex">
+                    <p class="wd_800" id="fantasia_pdf">
+
+                    </p>
+                    <p class="wd_800" id="endereco_pdf">
+                
+                    </p>
+                </div>
+                <div class="display_flex">
+                    <p class="wd_800" id="tel1_pdf">
+                        
+                    </p>
+                    <p class="wd_800" id="tel2_pdf">
+                        
+                    </p>
+                </div>
+                <div class="display_flex">
+                    <p class="wd_800"id="tel3_pdf">
+                       
+                    </p>
+                    <p class="wd_800" id="tel4_pdf">
+                    </p>
+                </div>
+                <div class="display_flex">
+                    <p class="wd_800"id="bairro_pdf">
+                        
+                    </p>
+                    <p class="wd_800" id="email_pdf">
+                    </p>
+                </div>
+                <div class="display_flex">
+                    <p class="wd_800" id="cidade_pdf">
+                        
+                    </p>
+                </div>
+                <p id="obs_pdf"></p>
+                <div class="bloco_hr">
+                    DADOS DOS PRODUTOS
+                </div>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <div class="display_flex assin">
+                      <p>RESPONSAVEL:</p>
+                      <p>CLIENTE:</p>
+                </div>
+        </main>
+        
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <script>
+            function BuscaCep () 
+             {
+                var cep = $("#cep").val();
+                $.get("https://viacep.com.br/ws/"+ cep +"/json/", function(resultado){
+                    if (resultado.localidade.length > 0) 
+                    {
+                        $("#cidade").val(resultado.localidade);
+                        $("#bairro").val(resultado.bairro);
+                    }else {
+
+                    }
+                })
+             }
+            
+             
+            // Testando a validação usando jQuery
+            $(function(){
+                // Aciona a validação a cada tecla pressionada
+                var temporizador = false;
+                $('#cnpj_cpf').keypress(function(){
+
+                    // O input que estamos utilizando
+                    var input = $(this);
+                    
+                    // Limpa o timeout antigo
+                    if ( temporizador ) {
+                        clearTimeout( temporizador );
+                    }
+                    
+                    // Cria um timeout novo de 500ms
+                    temporizador = setTimeout(function(){
+                      
+                        // O CPF ou CNPJ
+                        var cpf_cnpj = input.val();
+                        
+                        // Valida
+                        var valida = valida_cpf_cnpj( cpf_cnpj );
+                        
+                        // Testa a validação
+                        if ( valida ) {
+                           console.log("valido");
+                        } else {
+                            console.log("invalido");
+                        }
+                    }, 500);
+
+                });
+            });
+
+            /*função valida email*/
+            $("#email").blur("blur", function(){ 
+       
+                var x=$("#email").val();
+                var atpos=x.indexOf("@");
+                var dotpos=x.lastIndexOf(".");
+                if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+                {
+                    console.log("Não é um endereço de e-mail válido");
+                    return false;
+                }else {
+                    console.log("e-mail válido");
+                }
+                return true;
+            });
+
+    
+        
+            function GeraPdf () {
+                var imgData = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALwAAABQCAYAAACjzx9SAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjEzQTRBMTM3Q0IyMTFFOUFGRTNCMTlGRDg4REUyMTAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjEzQTRBMTQ3Q0IyMTFFOUFGRTNCMTlGRDg4REUyMTAiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MTNBNEExMTdDQjIxMUU5QUZFM0IxOUZEODhERTIxMCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2MTNBNEExMjdDQjIxMUU5QUZFM0IxOUZEODhERTIxMCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlfRj5oAACFESURBVHja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'+
+                              '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'+
+                              '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'
+                var pdf = new jsPDF('p','pt','a4');
+                $('#dados').css({"display":"none"});
+                $('#dados_pdf').css({"display":"block","margin-top":"100px"});
+                $('#cnpj_cpf_pdf').html( $('#cnpj_cpf').val() );
+                $('#cliente_pdf').html('<b>CLIENTE: </b>'+$('#rz_social').val());
+                $('#cnpj_cpf_pdf').html('<b>CNPJ:: </b>'+$('#cnpj_cpf').val());
+                $('#fantasia_pdf').html('<b>FANTASIA: </b>'+$('#n_fantasia').val());
+                $('#endereco_pdf').html('<b>ENDEREÇO: </b>'+$('#endereco_pdf').val());
+                $('#tel1_pdf').html('<b>TELEFONE 1: </b>'+$('#tel_1').val());
+                $('#tel2_pdf').html('<b>TELEFONE 2: </b>'+$('#tel_2').val());
+                $('#tel3_pdf').html('<b>TELEFONE 3: </b>'+$('#tel_3').val());
+                $('#tel4_pdf').html('<b>TELEFONE 4: </b>'+$('#tel_3').val());
+                $('#bairro_pdf').html('<b>BAIRRO: </b>'+$('#bairro').val());
+                $('#email_pdf').html('<b>EMAIL: </b>'+$('#email').val());
+                $('#cidade_pdf').html('<b>CIDADE: </b>'+$('#cidade').val());
+                $('#obs_pdf').html('<b>OBSERVAÇÃO: </b>'+$('#obs').val());
+                $('#title').html('<h3 style="position:absolute; top:30px; left: 40%">PEDIDO DE COMPRA</h3>');
+                $('#data_emissao').html('<h3 style="position:absolute; top:30px; left: 85%">'+dataAtualFormatada()+'</h3>');
+                pdf.addHTML(document.body,function() {
+                    // pdf.text(35, 25, 'Paranyan loves jsPDF')
+                    pdf.addImage(imgData, 'PNG', 10, 1, 110, 40)
+                    pdf.save('web.pdf');
+                    $('#dados').css({"display":""});
+                    $('#dados_pdf').css({"display":"none"});
+                });
+            }
+            
+            function dataAtualFormatada(){
+                var data = new Date(),
+                    dia  = data.getDate().toString(),
+                    diaF = (dia.length == 1) ? '0'+dia : dia,
+                    mes  = (data.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+                    mesF = (mes.length == 1) ? '0'+mes : mes,
+                    anoF = data.getFullYear();
+                return diaF+"/"+mesF+"/"+anoF;
+            }
+
+
+        </script>
+    </body>
+</html>

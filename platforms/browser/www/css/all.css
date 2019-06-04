@@ -1,0 +1,65 @@
+p,
+h4,
+h5,
+h6,
+label {
+ font-family: 'Montserrat', sans-serif;
+}
+.bg {
+ background-color:  #2C193F;
+ border: 2px solid #2C193F;
+}
+label{
+ margin-bottom: -5px;
+}
+.row {
+ margin-top: 10px;
+}
+
+.modal-dialog {
+ max-width: 80% !important;
+ height: 100%;
+ padding: 0;
+ margin-left: auto;
+ margin-right: auto;
+ display: block;
+}
+
+#renderPDF>.row {
+ margin-top:  -10px;
+}
+.dados_empresa {
+ background-color: #2C193F;
+ width: 100%;
+ color: white;
+}
+.display_flex {
+ display: flex;
+}
+.wd_800{
+ width: 800px;
+ margin-top: -15px;
+}
+.bloco_hr {
+ background-color: #2C193F;
+ text-align: center;
+ color: white;
+ margin-bottom: 15px;
+ PADDING:3px;
+}
+.centro {
+ padding-left: auto;
+ padding-right: auto;
+ display: block;
+}
+#dados_pdf {
+ margin: 10px;
+ display: none;
+}
+
+.assin>p {
+ border-top: 2px solid #2C193F;
+ margin-left: 10px;
+ margin-top: 50px;
+ width: 200px;
+}
